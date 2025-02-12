@@ -1,0 +1,17 @@
+version: "3.3"
+
+services:
+  view:
+    build:
+      context: .
+      dockerfile: Dockerfile  # 📌 Nom du fichier Docker (optionnel si c'est "Dockerfile")
+    image: view-service
+    ports:
+      - "8501:8501"
+    networks:
+      - crewai-network
+
+networks:
+  crewai-network:
+    name: crewai-network
+    external: true

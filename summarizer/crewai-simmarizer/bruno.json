@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "crewai-simmarizer",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

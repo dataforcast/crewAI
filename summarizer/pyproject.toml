@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "summarizer"
+version = "0.1.0"
+description = "summarizer using crewAI"
+authors = ["Your Name <fbt_telecom@yahoo.com>"]
+packages = [{include = "src/summarizer"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+crewai = {version = ">=0.100.1,<1.0.0", extras = ["tools"]}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

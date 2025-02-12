@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "view"
+version = "0.1.0"
+description = "User interface for crewAI"
+authors = ["Your Name <fbt_telecom@yahoo.com>"]
+packages = [{include = "ui"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+streamlit = "1.41.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,24 @@
+version: "3.3"
+
+services:
+  summarizer:
+    build:
+      context: .  # 📌 Chemin du Dockerfile (racine de summarizer/)
+      dockerfile: Dockerfile  # 📌 Nom du fichier Docker (optionnel si c'est "Dockerfile")
+
+    image: summarizer-service
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    networks:
+      - crewai-network
+    volumes:
+      - ./src:/app/src  # 📌 Monte le dossier source pour éviter de rebuild après chaque modif
+
+
+networks:
+  crewai-network:
+    name: crewai-network  # 📌 Ajoute un nom explicite pour le réseau
+    driver: bridge
+    external: true

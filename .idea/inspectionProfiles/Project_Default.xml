@@ -1,0 +1,66 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="27">
+            <item index="0" class="java.lang.String" itemvalue="tiktoken" />
+            <item index="1" class="java.lang.String" itemvalue="chromadb" />
+            <item index="2" class="java.lang.String" itemvalue="gradio" />
+            <item index="3" class="java.lang.String" itemvalue="duckduckgo_search" />
+            <item index="4" class="java.lang.String" itemvalue="apify-client" />
+            <item index="5" class="java.lang.String" itemvalue="google-generativeai" />
+            <item index="6" class="java.lang.String" itemvalue="pandoc" />
+            <item index="7" class="java.lang.String" itemvalue="langchain_decorators" />
+            <item index="8" class="java.lang.String" itemvalue="langchain" />
+            <item index="9" class="java.lang.String" itemvalue="unstructured" />
+            <item index="10" class="java.lang.String" itemvalue="arxiv" />
+            <item index="11" class="java.lang.String" itemvalue="lanarky" />
+            <item index="12" class="java.lang.String" itemvalue="wolframalpha" />
+            <item index="13" class="java.lang.String" itemvalue="promptwatch" />
+            <item index="14" class="java.lang.String" itemvalue="langchain_experimental" />
+            <item index="15" class="java.lang.String" itemvalue="replicate" />
+            <item index="16" class="java.lang.String" itemvalue="gpt4all" />
+            <item index="17" class="java.lang.String" itemvalue="faiss-cpu" />
+            <item index="18" class="java.lang.String" itemvalue="streamlit" />
+            <item index="19" class="java.lang.String" itemvalue="sentence-transformers" />
+            <item index="20" class="java.lang.String" itemvalue="google-cloud-aiplatform" />
+            <item index="21" class="java.lang.String" itemvalue="pypdf" />
+            <item index="22" class="java.lang.String" itemvalue="ray" />
+            <item index="23" class="java.lang.String" itemvalue="openai" />
+            <item index="24" class="java.lang.String" itemvalue="ruff" />
+            <item index="25" class="java.lang.String" itemvalue="google-api-python-client" />
+            <item index="26" class="java.lang.String" itemvalue="huggingface_hub" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E265" />
+          <option value="E203" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N806" />
+          <option value="N803" />
+          <option value="N802" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyProtectedMemberInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyShadowingNamesInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="values" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

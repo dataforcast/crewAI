@@ -1,0 +1,40 @@
+10/2023 01/2025
+
+• Technical leader
+Credit Agricole (banking area)
+Development of the technical strategy, contribution to the LLM base
+Design of the technical architecture for the deployment in
+SaaS mode of an email categorisation solution
+Design of a solution based on generative AI for the deployment of
+an assistant on the client workstation.
+Design of the software architecture for the solution in micro
+services and REST APIs for integration with the messaging system.
+
+10/2021 09/2023
+Senior Architect / Lead Data-Scientist
+Capgemini / Hybrid Intelligence
+• Assessment and architecture development for SaaS deployment
+of an SaaS mode of an IoT/Batch data processing solution on
+Azure/AWS/"On premises
+• Audit of a Python-Datascience source code, re-engineering it for
+its industrialization in a context of a business application managing
+metadata with a graph model (life sciences), design of the
+technical architecture for deployment/production in SaaS mode
+• Industrialization of source code of an NLP based solution for
+automatic generation of quotations
+• Design of a conceptual graph data model and implementation of
+of the cloud data workflow for a leading industrial company
+• Development of a digital twin ontology model feeded by IoT
+sensors on Azure for a steel manufacturer
+• Analysis of how Deep Learning models based on transformers
+work to implement fine-tuning methods
+
+
+01/05/2021 31/07/2021
+BPCE group (bank, insurance)
+Product Owner / Lead Data-Scientist
+• Industrialization of machine learning systems
+• Specification of industrialization methodology
+• Specification of machine learning monitoring
+• Workshops animation
+

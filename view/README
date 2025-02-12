@@ -1,0 +1,48 @@
+conda activate ~/anacondaX/envs/crewai-env-312
+export PATH=~/anacondaX/envs/crewai-env-312/bin:$PATH
+poetry lock
+# Construire le container
+docker build -t view-service .
+# Lancer le container
+docker run --env-file .env -p 8001:8001 view-service
+docker run --env-file .env view-service
+
+# Supprimer anciennes images:
+docker rmi view-service
+# Construction de l'image en utilisant le cache
+docker build -t view-service .
+# Sans uiliser le cache
+docker build --no-cache -t view-service .
+
+docker run --env-file .env -p 8001:8001 view-service
+# Pour charger l'image locale
+docker run --env-file .env -p 8001:8001 --pull=never view-service
+
+# Apres reconstruction
+docker stop view-service
+docker rm view-service
+
+#----------------------------------
+# Liste des images
+docker images
+
+# Liste des containers y compris ceux arrêtés
+docker ps -a
+
+# Supprimer toutes les images inutilisées
+docker image prune -a # ne semble pas fonctionner tout le temps
+
+# Purger en fonrçant:
+docker rm -f $(docker ps -aq)
+
+
+# Lister les images y compris celles utilisées:
+docker ps -a
+
+# Purger un CONTAINER
+docker rm <CONTAINER_ID>
+# Purger une image
+docker rmi -f view-service
+
+# Construire l'image:
+docker-compose build

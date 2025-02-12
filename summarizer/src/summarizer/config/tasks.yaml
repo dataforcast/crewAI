@@ -1,0 +1,20 @@
+summarizer_task:
+  description: >
+    Provide an abstract from the following text : {topic}
+    Identify key intents and ideas, structure information in a consistent and clear manner 
+    and prioritize information according to importance and relevance.
+    IMPORTANT: Count words having a result text of 50 words max.
+  expected_output: >
+    A summarized text from {topic} with a title in front of it containing 50 words max of the original text.
+  agent: summarizer_agent
+
+string_to_period_converter_task:
+  description: >
+    Identify, from a text, patterns representing periods of time and convert them into the format 
+    start_month <YYYY> - end_month <YYYY>. E.g, the period 09/2005 - 12/2006 will be converted into 
+    september 2005 - december 2006. 
+    There is no upper case for month.
+  expected_output: >
+    A string representing a period of time.
+    Formatted as markdown without '```'
+  agent: string_to_period_converter_agent
