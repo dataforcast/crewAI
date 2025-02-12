@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  summarizer:
+    build:
+      context: ./summarizer  # 📌 Chemin relatif vers le dossier summarizer
+      dockerfile: Dockerfile
+    image: summarizer-service
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    networks:
+      - crewai-network
+    volumes:
+      - ./summarizer/src:/app/src  # 📌 Monte le dossier source pour éviter de rebuild après chaque modif
+
+  view:
+    build:
+      context: ./view  # 📌 Chemin relatif vers le dossier view
+      dockerfile: Dockerfile
+    image: view-service
+    ports:
+      - "8501:8501"
+    networks:
+      - crewai-network
+    depends_on:
+      - summarizer  # 📌 S'assure que summarizer démarre avant view
+
+networks:
+  crewai-network:
+    name: crewai-network
+    driver: bridge
+    external: true
