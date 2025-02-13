@@ -1,5 +1,22 @@
 # crewAI
-Exemple of migration from agentic towards CrewAI 
+Exemple of migration from agentic towards CrewAI.
+
+The solution has some abilities of a Human Resource assistant.
+A (part of ) CV is uploaded and headline, the original text is displayed on letf side 
+along with: 
+- a headline that provides the global position of the worker
+- the historic of experiences
+- an abstract of the carreer 
+
+![img.png](doc/result.png)
+
+# Components for solution
+
+- **Streamlit** for User Interface : https://docs.streamlit.io/
+- **CrewAI** for agents framework : https://docs.crewai.com/
+- **OpenAI** for LLMs: https://openai.com/
+- **Excalidraw** for schemas and diagrams : https://excalidraw.com/
+- **Linkedin** : https://www.linkedin.com/in/françois-bangui-809367151
 
 # Architecture
 ![img.png](doc/docker.png)
@@ -8,6 +25,10 @@ Exemple of migration from agentic towards CrewAI
 This application run a multi-container application implemented as two microservices:
 - view-service
 - summarizer-service
+
+For the need of the Continuous Integration workflow, The OpenAPI API key for querying LLM 
+is stored in the Github vault connected to th repository and injected in `resume-service`.
+
 ## The View service
 User interface implemented with `streamlit`. It allows a user to 
 upload a file and view the result.
@@ -99,7 +120,14 @@ Once containers are launched and executed with Docker then file into `data/input
 be used.
 
 # The continuous integration workflow
+The workflow for continuous integration is defined in file `crewai/.github/workflows/build.yml`
 
+All the steps for installing building and checking containers are defined in it.
+
+The workflow is triggered each time a push command on master repository branch is made.
+
+On success on Github Actions page, the following section name "`Check running containers`" should display followings:
+![img.png](doc/checkrunningcontainers.png)
 # Result
 The screen below shows the result of interactions between the two services. 
 The left side is the original text.
