@@ -63,7 +63,7 @@ Attaching a secret to the `crewai` repository is achieved from Github Actions as
 > 
 
 # Managing services
-## Building srevices
+## Building services
 > docker compose build
 ## Launching services
 > docker compose up -d
