@@ -1,0 +1,31 @@
+# This file build Docker images, start Docker containers and check whenever or not containers
+# activation is successful.
+# docker compose is used for building and starting containers
+name: Docker Compose Build Check
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+# For triggering this workflow on pull request, then uncomment raws below
+#    branches:
+#      - main
+jobs:
+  docker-compose-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build all services using Docker Compose
+        run: docker compose -f docker-compose.yml build
+
+      - name: Start all services
+        run: docker compose -f docker-compose.yml up -d
+
+      - name: Check running containers
+        run: docker ps
