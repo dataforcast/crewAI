@@ -22,8 +22,13 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
+      # secured key is injected in environment file for summarizer
       - name: Create .env file for summarizer
         run: echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" > summarizer/.env
+
+      # Create subnetwork crewai-network joined by microservices or pass if already exists
+      - name: Create Docker network
+        run: docker network create crewai-network || true
 
       - name: Build all services using Docker Compose
         run: docker compose -f docker-compose.yml build
