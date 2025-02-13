@@ -32,6 +32,9 @@ docker ps -a
 # Supprimer toutes les images inutilisées
 docker image prune -a # ne semble pas fonctionner tout le temps
 
+# Arrer un container
+docker stop <DOCKER_ID>
+
 # Purger en fonrçant:
 docker rm -f $(docker ps -aq)
 

@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from pprint import pprint
 
 import json
 from src.summarizer.crew import Summarizer
@@ -27,10 +26,6 @@ def summarize(request: SummarizeRequest):
     result = crew.kickoff(inputs= inputs)
     # print("")
     dict_task = json.loads(result.tasks_output[0].raw.strip())
-    # print("--------------------")
-    # pprint(result.tasks_output[0])
-    # print("--------------------")
-    # print("")
     return {"period": result.raw.strip(), "title":dict_task['title'], "abstract": dict_task['content']}
 
 

@@ -3,17 +3,27 @@ from typing import Type
 from pydantic import BaseModel, Field
 
 
-class MyCustomToolInput(BaseModel):
+class CounterWordToolInput(BaseModel):
     """Input schema for MyCustomTool."""
-    argument: str = Field(..., description="Description of the argument.")
+    argument: str = Field(..., description="Text of words to be counted")
 
-class MyCustomTool(BaseTool):
-    name: str = "Name of my tool"
-    description: str = (
-        "Clear description for what this tool is useful for, your agent will need this information to use it."
-    )
-    args_schema: Type[BaseModel] = MyCustomToolInput
+class CounterWordTool(BaseTool):
+    name: str = "word counter"
+    description: str = "Counts words in a text"
+    args_schema: Type[BaseModel] = CounterWordToolInput
 
-    def _run(self, argument: str) -> str:
-        # Implementation goes here
-        return "this is an example of a tool output, ignore it and move along."
+    def _run(self, argument: str) -> int:
+        return len(argument.split())
+
+class PercentToolInput(BaseModel):
+    """Input schema for MyCustomTool."""
+    number1: int = Field(..., description="Represents the numerator of a ratio")
+    number2: int = Field(..., description="Represents the denominator of a ratio")
+
+class PercentWordTool(BaseTool):
+    name: str = "word percentage"
+    description: str = "Compute a percentage from two numbers number1*100/number2"
+    args_schema: Type[BaseModel] = PercentToolInput
+
+    def _run(self, number1: int, number2:int) -> float:
+        return 100*number1/number2

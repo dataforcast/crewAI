@@ -1,10 +1,8 @@
-from pydantic import BaseModel, Field
-from typing import Type
+from pydantic import BaseModel
 from crewai import Agent, Crew, Process, Task
-from crewai.tools import BaseTool
-
 from crewai.project import CrewBase, agent, crew, task, before_kickoff, after_kickoff
 
+from src.summarizer.tools.custom_tool import CounterWordTool, PercentWordTool
 
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
@@ -14,36 +12,6 @@ class Abstract(BaseModel):
     title: str
     content: str
 
-
-class CounterWordToolInput(BaseModel):
-    """Input schema for MyCustomTool."""
-    argument: str = Field(..., description="Text of words to be counted")
-
-
-class CounterWordTool(BaseTool):
-    name: str = "word counter"
-    description: str = "Counts words in a text"
-    args_schema: Type[BaseModel] = CounterWordToolInput
-
-    def _run(self, argument: str) -> int:
-        return len(argument.split())
-
-class PercentToolInput(BaseModel):
-    """Input schema for MyCustomTool."""
-    number1: int = Field(..., description="Represents the numerator of a ratio")
-    number2: int = Field(..., description="Represents the denominator of a ratio")
-
-class PercentWordTool(BaseTool):
-    name: str = "word percentage"
-    description: str = "Compute a percentage from two numbers number1*100/number2"
-    args_schema: Type[BaseModel] = PercentToolInput
-
-    def _run(self, number1: int, number2:int) -> float:
-        return 100*number1/number2
-
-
-counter_word_tool = CounterWordTool()
-percent_tool = PercentWordTool()
 
 @CrewBase
 class Summarizer():
@@ -71,6 +39,9 @@ class Summarizer():
 
     @agent
     def summarizer_agent(self) -> Agent:
+        counter_word_tool = CounterWordTool()
+        percent_tool = PercentWordTool()
+
         return Agent(
             config=self.agents_config['summarizer_agent'],
             tools=[counter_word_tool, percent_tool,],
