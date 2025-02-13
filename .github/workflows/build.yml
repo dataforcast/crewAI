@@ -1,6 +1,7 @@
 # This file build Docker images, start Docker containers and check whenever or not containers
 # activation is successful.
 # docker compose is used for building and starting containers
+# For checking result : https://github.com/dataforcast/crewAI/actions/workflows/build.yml
 name: Docker Compose Build Check
 
 on:
