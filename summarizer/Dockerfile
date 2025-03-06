@@ -15,7 +15,7 @@ RUN chmod -R 755 /app/src
 # Installer Poetry et ses dépendances
 RUN pip install --no-cache-dir --upgrade pip \
      && pip install --no-cache-dir poetry
- RUN poetry install --no-interaction
+RUN poetry install --no-interaction
 
 # RUN pip install --upgrade pip \
 #     && pip install poetry
